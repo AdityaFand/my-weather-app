@@ -1,0 +1,25 @@
+.weather-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .weather-card.loading {
+    font-style: italic;
+    color: #888;
+  }
+  
+  .city-name {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .temperature {
+    font-size: 1.2em;
+  }
+  
+  .weather-description {
+    font-style: italic;
+  }
+  

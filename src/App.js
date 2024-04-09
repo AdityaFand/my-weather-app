@@ -1,27 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 import React, { useState } from 'react';
-import './App.css'; // Assuming you have a separate CSS file for styling
-import Form from './components/Form.tsx';
-import CityList from './components/CityList.tsx';
-import WeatherCard from './components/WeatherCard.tsx';
+import './App.css'; // Import your CSS file
+import Form from './components/Form';
+import CityList from './components/CityList';
 
-function App() {
+const App = () => {
   const [cities, setCities] = useState([]);
 
-  // Function to handle form submission and add city to the list
-  const handleFormSubmit = (city) => {
-    setCities([...cities, city]);
+  // Function to handle city submission
+  const handleCitySubmit = (city) => {
+    setCities([...cities, city]); // Update cities state with new city name
   };
+
   return (
     <div className="App">
       <h1>Weather App</h1>
-      {/* Render Form component and pass handleFormSubmit function as prop */}
-      <Form onSubmit={handleFormSubmit} />
-      {/* Render CityList component and pass list of cities as prop */}
+      <Form onSubmit={handleCitySubmit} />
       <CityList cities={cities} />
     </div>
   );
-}
+};
 
 export default App;

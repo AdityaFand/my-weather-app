@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-interface FormProps {
-  onSubmit: (city: string) => void;
-}
-
-const Form: React.FC<FormProps> = ({ onSubmit }) => {
+const Form = ({ onSubmit }) => {
   const [city, setCity] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(city);
-    setCity('');
+    if (city.trim() !== '') {
+      onSubmit(city);
+      setCity('');
+    }
   };
 
   return (
@@ -25,6 +24,10 @@ const Form: React.FC<FormProps> = ({ onSubmit }) => {
       <button type="submit">Add City</button>
     </form>
   );
+};
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Form;
