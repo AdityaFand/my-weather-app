@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './WeatherCard.css'; // Import your CSS file
+import './WeatherCard.css'; 
 
 const WeatherCard = ({ city }) => {
   const [weatherData, setWeatherData] = useState(null);
@@ -22,7 +22,7 @@ const WeatherCard = ({ city }) => {
   }, [city]);
 
   if (!weatherData) {
-    return <div className="weather-card loading">Loading...</div>; // Apply loading class
+    return <div className="weather-card loading">Loading...</div>; 
   }
 
   const temperature = weatherData.main.temp;
@@ -30,9 +30,9 @@ const WeatherCard = ({ city }) => {
 
   return (
     <div className="weather-card">
-      <h2 className="city-name">{city}</h2> {/* Apply city-name class */}
-      <p className="temperature">Temperature: {temperature}°C</p> {/* Apply temperature class */}
-      <p className="weather-description">Weather: {weatherDescription}</p> {/* Apply weather-description class */}
+      <h2 className="city-name">{city}</h2> 
+      <p className="temperature">Temperature: {temperature}°C</p> 
+      <p className="weather-description">Weather: {weatherDescription}</p>
     </div>
   );
 };
